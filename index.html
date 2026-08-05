@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>شركة ملبوسات طيور الجنة الراقية</title>
+    <style>
+        :root {
+            --bg-grad: linear-gradient(135deg, #3d0201 0%, #830602 50%, #1a0000 100%);
+            --card-bg: rgba(137, 53, 1, 0.65);
+            --border-glow: rgba(229, 169, 59, 0.4);
+            --gold-accent: #e5a93b;
+            --gold-light: #fbe3b5;
+            --text-white: #ffffff;
+            --text-muted: #f3d4ca;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-grad);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 15px;
+            color: var(--text-white);
+        }
+
+        /* Container Card */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1.5px solid var(--border-glow);
+            border-radius: 28px;
+            padding: 35px 20px 25px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        /* Quick Utility Actions (Share + Save) */
+        .top-actions {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            right: 18px;
+            display: flex;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        .action-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-glow);
+            color: var(--gold-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .action-btn:active {
+            transform: scale(0.92);
+            background: var(--gold-accent);
+            color: #3d0201;
+        }
+
+        .action-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Logo Image Header */
+        .logo-wrapper {
+            margin-top: 10px;
+            margin-bottom: 16px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .logo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3.5px solid var(--gold-accent);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            background: #4a0301;
+        }
+
+        /* Text Styles */
+        h1 {
+            font-size: 21px;
+            font-weight: 800;
+            color: var(--text-white);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            color: var(--gold-light);
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        p.desc {
+            color: var(--text-muted);
+            font-size: 13.5px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        /* Links List */
+        .links-group {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 16px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--text-white);
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+            background: rgba(0, 0, 0, 0.45);
+        }
+
+        .btn-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .icon-box {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .icon-box svg {
+            width: 22px;
+            height: 22px;
+            fill: #ffffff;
+        }
+
+        .btn-text {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+        }
+
+        .btn-title {
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .btn-sub {
+            font-size: 11.5px;
+            color: rgba(255, 255, 255, 0.75);
+            margin-top: 3px;
+        }
+
+        /* Accent Styles */
+        .vcf-btn {
+            background: rgba(229, 169, 59, 0.25);
+            border-color: var(--gold-accent);
+        }
+        .vcf-btn .icon-box { background: var(--gold-accent); }
+        .vcf-btn .icon-box svg { fill: #3d0201; }
+        .vcf-btn .btn-title { color: var(--gold-light); }
+
+        .whatsapp-btn .icon-box { background: #25D366; }
+        .call-btn .icon-box { background: #007AFF; }
+        .maps-btn .icon-box { background: #EA4335; }
+
+        .arrow-svg {
+            width: 16px;
+            height: 16px;
+            fill: rgba(255, 255, 255, 0.6);
+            flex-shrink: 0;
+        }
+
+        .footer {
+            margin-top: 25px;
+            padding-top: 16px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.2);
+            font-size: 12.5px;
+            color: var(--gold-accent);
+            font-weight: 700;
+        }
+
+        /* Toast Alert */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(0, 0, 0, 0.9);
+            color: var(--gold-light);
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 13.5px;
+            font-weight: bold;
+            border: 1px solid var(--gold-accent);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        
+        <!-- Top Utility Controls -->
+        <div class="top-actions">
+            <button class="action-btn" onclick="shareProfile()" title="مشاركة البطاقة">
+                <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L7.05 10.81C6.5 10.31 5.79 10 5 10c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
+            </button>
+            <button class="action-btn" onclick="downloadVCard()" title="حفظ جهاز الاتصال">
+                <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            </button>
+        </div>
+
+        <!-- Logo Header -->
+        <div class="logo-wrapper">
+            <img src="72975629-87da-40ad-b351-878e83d83f01.jpg" alt="شعار المحل" class="logo" onerror="this.src='https://via.placeholder.com/110/830602/FFFFFF?text=طيور+الجنة'">
+        </div>
+
+        <h1>شركة ملبوسات طيور الجنة الراقية</h1>
+        <span class="subtitle">فخامة الملابس والأزياء الراقية</span>
+        <p class="desc">أهلاً بكم! يسعدنا تواصلكم المباشر وحفظ بياناتنا عبر الخيارات المتاحة أدناه:</p>
+
+        <!-- Main Interactive Actions -->
+        <div class="links-group">
+            
+            <!-- 1. vCard Auto Download Feature -->
+            <button onclick="downloadVCard()" class="btn vcf-btn">
+                <div class="btn-right">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.78c0-2.33 4.67-3.5 7-3.5s7 1.17 7 3.5v.78z"/></svg>
+                    </div>
+                    <div class="btn-text">
+                        <span class="btn-title">حفظ في جهات الاتصال</span>
+                        <span class="btn-sub">تنزيل بطاقة الاتصال تلقائياً (vCard)</span>
+                    </div>
+                </div>
+                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+
+            <!-- 2. WhatsApp Direct -->
+            <a href="https://iwtsp.com/966559558051" target="_blank" class="btn whatsapp-btn">
+                <div class="btn-right">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42 1.56 1.56 2.41 3.63 2.41 5.83 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.32a8.19 8.19 0 0 1-1.26-4.38c.01-4.54 3.71-8.24 8.26-8.24"/></svg>
+                    </div>
+                    <div class="btn-text">
+                        <span class="btn-title">مراسلة عبر الواتساب</span>
+                        <span class="btn-sub">خدمة العملاء والطلبات المباشرة</span>
+                    </div>
+                </div>
+                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </a>
+
+            <!-- 3. Phone Direct -->
+            <a href="tel:0559558051" class="btn call-btn">
+                <div class="btn-right">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    </div>
+                    <div class="btn-text">
+                        <span class="btn-title">إتصال هاتف مباشر</span>
+                        <span class="btn-sub">0559558051</span>
+                    </div>
+                </div>
+                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </a>
+
+            <!-- 4. Google Maps -->
+            <a href="https://maps.app.goo.gl/NBtEpz1me6ekBET56" target="_blank" class="btn maps-btn">
+                <div class="btn-right">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                    <div class="btn-text">
+                        <span class="btn-title">موقعنا على الخريطة</span>
+                        <span class="btn-sub">Google Maps - زيارة الفرع</span>
+                    </div>
+                </div>
+                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </a>
+
+        </div>
+
+        <div class="footer">
+            ✦ الجودة والفخامة في مكان واحد ✦
+        </div>
+
+    </div>
+
+    <!-- Alert Toast -->
+    <div class="toast" id="toast">تم الإجراء بنجاح</div>
+
+    <script>
+        function downloadVCard() {
+            const vcardData = `BEGIN:VCARD
+VERSION:3.0
+FN:شركة ملبوسات طيور الجنة الراقية
+ORG:شركة ملبوسات طيور الجنة الراقية
+TEL;TYPE=CELL,VOICE:0559558051
+URL;TYPE=WhatsApp:https://iwtsp.com/966559558051
+URL;TYPE=Maps:https://maps.app.goo.gl/NBtEpz1me6ekBET56
+NOTE:أزياء وملبوسات راقية
+END:VCARD`;
+
+            const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'ملبوسات_طيور_الجنة.vcf');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast("جاري حفظ بطاقة الاتصال...");
+        }
+
+        async function shareProfile() {
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'شركة ملبوسات طيور الجنة الراقية',
+                        text: 'البطاقة الرقمية الرسمية لشركة ملبوسات طيور الجنة الراقية:',
+                        url: window.location.href
+                    });
+                } catch (err) {}
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                showToast("تم نسخ رابط الصفحة للحافظة!");
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById("toast");
+            toast.innerText = msg;
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 2800);
+        }
+    </script>
+</body>
+</html>
