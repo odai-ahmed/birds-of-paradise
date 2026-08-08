@@ -85,12 +85,13 @@
             fill: currentColor;
         }
 
-        /* Logo Image Header */
+        /* Clickable Logo Wrapper */
         .logo-wrapper {
             margin-top: 10px;
             margin-bottom: 16px;
             display: inline-block;
             position: relative;
+            text-decoration: none;
         }
 
         .logo {
@@ -101,6 +102,11 @@
             border: 3.5px solid var(--gold-accent);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
             background: #4a0301;
+            transition: transform 0.2s ease;
+        }
+
+        .logo-wrapper:active .logo {
+            transform: scale(0.95);
         }
 
         /* Text Styles */
@@ -205,6 +211,7 @@
         .whatsapp-btn .icon-box { background: #25D366; }
         .call-btn .icon-box { background: #007AFF; }
         .maps-btn .icon-box { background: #EA4335; }
+        .catalog-btn .icon-box { background: #9C27B0; }
 
         .arrow-svg {
             width: 16px;
@@ -262,13 +269,13 @@
             </button>
         </div>
 
-        <!-- Logo Header -->
-        <div class="logo-wrapper">
+        <!-- Clickable Logo Header (Links directly to current page) -->
+        <a href="." class="logo-wrapper" title="اضغط للتنشيط / فتح البطاقة">
             <img src="72975629-87da-40ad-b351-878e83d83f01.jpg" alt="شعار المحل" class="logo" onerror="this.src='https://via.placeholder.com/110/830602/FFFFFF?text=طيور+الجنة'">
-        </div>
+        </a>
 
         <h1>شركة ملبوسات طيور الجنة الراقية</h1>
-        <span class="subtitle">فخامة الملابس والأزياء الراقية</span>
+        <span class="subtitle">فخامة الملابس والأزياء الراقية (مبيعات الجملة)</span>
         <p class="desc">أهلاً بكم! يسعدنا تواصلكم المباشر وحفظ بياناتنا عبر الخيارات المتاحة أدناه:</p>
 
         <!-- Main Interactive Actions -->
@@ -288,22 +295,35 @@
                 <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
             </button>
 
-            <!-- 2. WhatsApp Direct -->
-            <!-- الرابط المباشر لتطبيق الواتساب مباشرة -->
-<a href="whatsapp://send?phone=966559558051" class="btn whatsapp-btn">
+            <!-- 2. WhatsApp Wholesale Direct -->
+            <a href="whatsapp://send?phone=966559558051&text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%82%D8%B3%D9%85%20%D9%85%D8%A8%D9%8A%D8%B9%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AC%D9%85%D9%84%D8%A9%D9%80%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AA%D8%B4%D9%83%D9%8A%D9%84%D8%A7%D8%AA%20%D9%88%D8%A7%D9%84%D9%83%D9%85%D9%8A%D8%A7%D8%AA" class="btn whatsapp-btn">
                 <div class="btn-right">
                     <div class="icon-box">
                         <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42 1.56 1.56 2.41 3.63 2.41 5.83 0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.32a8.19 8.19 0 0 1-1.26-4.38c.01-4.54 3.71-8.24 8.26-8.24"/></svg>
                     </div>
                     <div class="btn-text">
-                        <span class="btn-title">مراسلة عبر الواتساب</span>
-                        <span class="btn-sub">خدمة العملاء والطلبات المباشرة</span>
+                        <span class="btn-title">مراسلة مبيعات الجملة</span>
+                        <span class="btn-sub">خدمة التجار والطلبات المباشرة</span>
                     </div>
                 </div>
                 <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
             </a>
 
-            <!-- 3. Phone Direct -->
+            <!-- 3. Wholesale Catalog / Orders -->
+            <a href="https://iwtsp.com/966559558051" target="_blank" class="btn catalog-btn">
+                <div class="btn-right">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+                    </div>
+                    <div class="btn-text">
+                        <span class="btn-title">كتالوج التشكيلات والدرزن</span>
+                        <span class="btn-sub">طلب قائمة الموديلات والكميات</span>
+                    </div>
+                </div>
+                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </a>
+
+            <!-- 4. Phone Direct -->
             <a href="tel:0559558051" class="btn call-btn">
                 <div class="btn-right">
                     <div class="icon-box">
@@ -317,15 +337,15 @@
                 <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
             </a>
 
-            <!-- 4. Google Maps -->
+            <!-- 5. Google Maps -->
             <a href="https://maps.app.goo.gl/NBtEpz1me6ekBET56" target="_blank" class="btn maps-btn">
                 <div class="btn-right">
                     <div class="icon-box">
                         <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                     </div>
                     <div class="btn-text">
-                        <span class="btn-title">موقعنا على الخريطة</span>
-                        <span class="btn-sub">Google Maps - زيارة الفرع</span>
+                        <span class="btn-title">موقعنا / مركز التوزيع</span>
+                        <span class="btn-sub">Google Maps - زيارة المستودع</span>
                     </div>
                 </div>
                 <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
@@ -351,7 +371,7 @@ ORG:شركة ملبوسات طيور الجنة الراقية
 TEL;TYPE=CELL,VOICE:0559558051
 URL;TYPE=WhatsApp:https://iwtsp.com/966559558051
 URL;TYPE=Maps:https://maps.app.goo.gl/NBtEpz1me6ekBET56
-NOTE:أزياء وملبوسات راقية
+NOTE:مبيعات جملة - ملبوسات وأزياء راقية
 END:VCARD`;
 
             const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8;' });
@@ -370,7 +390,7 @@ END:VCARD`;
                 try {
                     await navigator.share({
                         title: 'شركة ملبوسات طيور الجنة الراقية',
-                        text: 'البطاقة الرقمية الرسمية لشركة ملبوسات طيور الجنة الراقية:',
+                        text: 'البطاقة الرقمية الرسمية لشركة ملبوسات طيور الجنة الراقية (الجملة):',
                         url: window.location.href
                     });
                 } catch (err) {}
